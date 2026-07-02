@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Campus Notice AI</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="mark" aria-hidden="true">D</div>
+          <div>
+            <h1>Campus Notice AI</h1>
+            <p>단국대학교 공지 RAG 챗봇 MVP</p>
+          </div>
+        </div>
+
+        <section class="panel">
+          <h2>학생 조건</h2>
+          <label>
+            학과
+            <input id="department" value="모바일시스템공학과" />
+          </label>
+          <label>
+            학년
+            <select id="grade">
+              <option value="">전체</option>
+              <option value="1">1학년</option>
+              <option value="2">2학년</option>
+              <option value="3">3학년</option>
+              <option value="4" selected>4학년</option>
+            </select>
+          </label>
+          <label>
+            수업 ID
+            <input id="courseId" placeholder="computer-network" />
+          </label>
+        </section>
+
+        <section class="panel">
+          <h2>데이터 관리</h2>
+          <button id="seedBtn" type="button">샘플 공지 넣기</button>
+          <button id="crawlBtn" type="button">공개 공지 수집</button>
+          <button type="button" disabled>source별 수집 준비중</button>
+          <button id="reindexBtn" type="button">전체 재색인</button>
+          <button id="embedBtn" type="button">임베딩 생성</button>
+          <button type="button" disabled>실패 항목 재처리 준비중</button>
+          <a class="secondary-link" href="/integration-demo.html">위젯 연동 데모</a>
+          <p id="statusText" class="status">상태 확인 중...</p>
+        </section>
+
+        <section class="panel">
+          <h2>데이터 상태</h2>
+          <div id="ingestionStatus" class="status-grid">
+            <div>
+              <strong>-</strong>
+              <span>공지</span>
+            </div>
+            <div>
+              <strong>-</strong>
+              <span>청크</span>
+            </div>
+            <div>
+              <strong>-</strong>
+              <span>첨부</span>
+            </div>
+            <div>
+              <strong>-</strong>
+              <span>이미지</span>
+            </div>
+            <div>
+              <strong>-</strong>
+              <span>PDF 파싱</span>
+            </div>
+            <div>
+              <strong>-</strong>
+              <span>임베딩</span>
+            </div>
+          </div>
+          <p id="crawlStatusText" class="status">마지막 수집: -</p>
+          <div id="adminStatusDetails" class="admin-status-details"></div>
+        </section>
+      </aside>
+
+      <section class="workspace">
+        <section class="student-home">
+          <div class="section-header">
+            <div>
+              <h2>학생 홈</h2>
+              <p class="section-caption">학생 조건에 맞는 공지와 마감 상태를 먼저 보여줍니다.</p>
+            </div>
+            <span id="homeUpdatedAt">-</span>
+          </div>
+
+          <div id="homeMetrics" class="home-metrics"></div>
+
+          <div class="feed-grid">
+            <section class="feed-section feed-section-wide">
+              <div class="feed-header">
+                <h3>맞춤 공지 피드</h3>
+                <span id="personalizedFeedCount">0개</span>
+              </div>
+              <div id="personalizedFeed" class="feed-list"></div>
+            </section>
+
+            <section class="feed-section">
+              <div class="feed-header">
+                <h3>마감 임박 공지</h3>
+                <span id="deadlineFeedCount">0개</span>
+              </div>
+              <div id="deadlineFeed" class="feed-list compact"></div>
+            </section>
+
+            <section class="feed-section">
+              <div class="feed-header">
+                <h3>새 공지</h3>
+                <span id="newFeedCount">0개</span>
+              </div>
+              <div id="newFeed" class="feed-list compact"></div>
+            </section>
+
+            <section class="feed-section">
+              <div class="feed-header">
+                <h3>저장한 공지</h3>
+                <span id="savedFeedCount">0개</span>
+              </div>
+              <div id="savedFeed" class="feed-list compact"></div>
+            </section>
+          </div>
+        </section>
+
+        <section class="chat-surface">
+          <div class="section-header">
+            <div>
+              <h2>공지 챗봇</h2>
+              <p class="section-caption">답변은 DB에 저장된 공지와 근거 문장을 기준으로 생성됩니다.</p>
+            </div>
+            <span id="chatMode">fallback ready</span>
+          </div>
+
+          <div id="recommendedQuestions" class="quick-questions"></div>
+          <div id="chatMessages" class="chat-messages" aria-live="polite"></div>
+
+          <form id="chatForm" class="chatbar">
+            <input
+              id="chatInput"
+              autocomplete="off"
+              placeholder="예: 졸업시험 신청 언제까지야?"
+              value="졸업시험 신청 언제까지야?"
+            />
+            <button type="submit">질문</button>
+          </form>
+        </section>
+
+        <section class="recent-wrap">
+          <div class="section-header">
+            <h2>최근 DB 공지</h2>
+            <span id="noticeCount">0개</span>
+          </div>
+          <div id="recentNotices" class="notice-list"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

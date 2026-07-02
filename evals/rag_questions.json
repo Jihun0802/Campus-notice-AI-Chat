@@ -1,0 +1,279 @@
+[
+  {
+    "id": "grad_exam_deadline",
+    "query": "졸업시험 신청 언제까지야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["졸업시험", "신청"],
+      "preferred_chunk_types": ["body", "pdf_text"],
+      "must_not_include_visibility": ["course"],
+      "notes": "모바일시스템공학과 졸업시험 신청 공지를 찾아야 한다."
+    }
+  },
+  {
+    "id": "grad_exam_target",
+    "query": "졸업시험 대상이 누구야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["졸업시험", "대상"],
+      "preferred_chunk_types": ["body", "pdf_text"],
+      "must_not_include_visibility": ["course"]
+    }
+  },
+  {
+    "id": "leave_return_period",
+    "query": "휴학 복학 신청 기간 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["휴학", "복학", "신청"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "leave_return_portal",
+    "query": "휴학 신청은 어디서 해?",
+    "user_context": {"department": "소프트웨어학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["휴학", "포털"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "scholarship_deadline",
+    "query": "장학금 신청 마감일 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["장학금", "신청"],
+      "preferred_chunk_types": ["body", "pdf_text"]
+    }
+  },
+  {
+    "id": "scholarship_required_docs",
+    "query": "성적우수 장학금 제출 서류 뭐야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["장학", "신청서"],
+      "preferred_chunk_types": ["body", "pdf_text"]
+    }
+  },
+  {
+    "id": "course_change_period",
+    "query": "수강신청 정정 기간이 언제야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["수강신청", "정정"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "course_change_warning",
+    "query": "계절학기 수강 정정할 때 주의할 점 있어?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["수강", "잔여석"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "computer_network_assignment_hidden_without_course",
+    "query": "컴퓨터네트워크 과제 제출 언제까지야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": ""},
+    "expected": {
+      "no_answer": true,
+      "must_not_include_visibility": ["course"],
+      "notes": "course_id가 없으면 수업 공지가 노출되면 안 된다."
+    }
+  },
+  {
+    "id": "computer_network_assignment_with_course",
+    "query": "컴퓨터네트워크 과제 제출 언제까지야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": "computer-network"},
+    "expected": {
+      "must_include_keywords": ["컴퓨터네트워크", "과제"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "computer_network_late_penalty",
+    "query": "컴퓨터네트워크 과제 지각 제출 감점 있어?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": "computer-network"},
+    "expected": {
+      "must_include_keywords": ["컴퓨터네트워크", "지각"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "capstone_deadline_hidden_without_course",
+    "query": "캡스톤디자인 발표 자료 제출 언제까지야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "no_answer": true,
+      "must_not_include_visibility": ["course"]
+    }
+  },
+  {
+    "id": "capstone_deadline_with_course",
+    "query": "캡스톤디자인 발표 자료 제출 언제까지야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": "capstone-design"},
+    "expected": {
+      "must_include_keywords": ["캡스톤디자인", "발표"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "capstone_presentation_time",
+    "query": "캡스톤디자인 팀별 발표 시간은 몇 분이야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": "capstone-design"},
+    "expected": {
+      "must_include_keywords": ["캡스톤디자인", "발표", "10분"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "internship_application",
+    "query": "하계 현장실습 신청하려면 뭐 제출해야 해?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["현장실습", "이력서"],
+      "preferred_chunk_types": ["body", "pdf_text"]
+    }
+  },
+  {
+    "id": "internship_period",
+    "query": "하계 현장실습 기간 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "3", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["현장실습", "기간"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "office_hours",
+    "query": "학과 사무실 방학 운영 시간 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "1", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["사무실", "운영"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "office_lunch_time",
+    "query": "학과 사무실 점심시간에도 상담 가능해?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "1", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["점심시간", "상담"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "graduation_requirements",
+    "query": "졸업요건 확인 기간 언제야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["졸업요건", "확인"],
+      "preferred_chunk_types": ["body", "pdf_text"],
+      "must_not_include_visibility": ["course"]
+    }
+  },
+  {
+    "id": "graduation_thesis",
+    "query": "졸업논문 제출 여부 확인해야 해?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["졸업논문", "졸업요건"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "mobile_security_workshop",
+    "query": "모바일 앱 보안 특강 신청 마감이 언제야?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["모바일", "보안", "신청"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "mobile_security_capacity",
+    "query": "모바일 앱 보안 특강 몇 명 모집해?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["모바일", "보안", "30명"],
+      "preferred_chunk_types": ["body"]
+    }
+  },
+  {
+    "id": "deadline_soon",
+    "query": "마감 임박한 공지 뭐 있어?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["마감"],
+      "preferred_chunk_types": ["body", "pdf_text", "image_ocr"]
+    }
+  },
+  {
+    "id": "this_week_notices",
+    "query": "이번 주 확인해야 할 공지 정리해줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["공지"],
+      "preferred_chunk_types": ["body", "pdf_text", "image_ocr"]
+    }
+  },
+  {
+    "id": "pdf_submission_place",
+    "query": "PDF 첨부파일에 있는 제출 장소 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["제출"],
+      "preferred_chunk_types": ["pdf_text"],
+      "notes": "실제 PDF chunk가 있으면 pdf_text를 우선 검색해야 한다."
+    }
+  },
+  {
+    "id": "pdf_form_required",
+    "query": "첨부 PDF 양식 제출해야 하는 공지 있어?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["PDF", "제출"],
+      "preferred_chunk_types": ["pdf_text"]
+    }
+  },
+  {
+    "id": "image_poster_event",
+    "query": "이미지 포스터에 나온 행사 정보 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["행사"],
+      "preferred_chunk_types": ["image_ocr"],
+      "notes": "OCR 텍스트가 들어오면 image_ocr chunk가 검색되어야 한다."
+    }
+  },
+  {
+    "id": "image_ocr_deadline",
+    "query": "포스터 이미지에 있는 신청 마감일 찾아줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "2", "course_id": ""},
+    "expected": {
+      "must_include_keywords": ["신청", "마감"],
+      "preferred_chunk_types": ["image_ocr"]
+    }
+  },
+  {
+    "id": "other_department_no_answer",
+    "query": "건축학과 졸업전시 신청 공지 있어?",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "no_answer": true,
+      "must_not_include_visibility": ["private", "course"]
+    }
+  },
+  {
+    "id": "nonsense_no_answer",
+    "query": "화성 캠퍼스 우주선 탑승권 신청 공지 알려줘",
+    "user_context": {"department": "모바일시스템공학과", "grade": "4", "course_id": ""},
+    "expected": {
+      "no_answer": true,
+      "must_not_include_visibility": ["private", "course"]
+    }
+  }
+]

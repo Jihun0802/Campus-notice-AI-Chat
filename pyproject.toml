@@ -1,0 +1,11 @@
+[project]
+name = "campus-notice-ai"
+version = "0.1.0"
+description = "Notice RAG data foundation MVP for Dankook University notices"
+requires-python = ">=3.10"
+dependencies = [
+    "pypdf>=5.0",
+]
+
+[project.scripts]
+campus-notice-ai = "campus_notice_ai.cli:main"

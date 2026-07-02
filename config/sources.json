@@ -1,0 +1,46 @@
+[
+  {
+    "source_id": "school-general",
+    "name": "단국대학교 일반공지",
+    "source_type": "school_notice",
+    "url": "https://www.dankook.ac.kr/-390",
+    "detail_base_url": "https://www.dankook.ac.kr/web/kor/-390",
+    "department": null,
+    "category": null,
+    "enabled": true,
+    "crawl_limit": 3
+  },
+  {
+    "source_id": "mobile-systems",
+    "name": "단국대학교 모바일시스템공학과 학과공지",
+    "source_type": "department_notice",
+    "url": "https://cms.dankook.ac.kr/web/mobilesystems/-8",
+    "detail_base_url": "https://cms.dankook.ac.kr/web/mobilesystems/-8",
+    "department": "모바일시스템공학과",
+    "category": null,
+    "enabled": true,
+    "crawl_limit": 3
+  },
+  {
+    "source_id": "software",
+    "name": "단국대학교 소프트웨어학과 학과공지",
+    "source_type": "department_notice",
+    "url": "https://cms.dankook.ac.kr/web/sw/-1",
+    "detail_base_url": "https://cms.dankook.ac.kr/web/sw/-1",
+    "department": "소프트웨어학과",
+    "category": null,
+    "enabled": true,
+    "crawl_limit": 3
+  },
+  {
+    "source_id": "graduate",
+    "name": "단국대학교 대학원 공지사항",
+    "source_type": "school_notice",
+    "url": "https://grad.dankook.ac.kr/-22",
+    "detail_base_url": "https://grad.dankook.ac.kr/-22",
+    "department": null,
+    "category": "대학원",
+    "enabled": true,
+    "crawl_limit": 3
+  }
+]

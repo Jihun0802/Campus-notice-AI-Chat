@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>공지 상세 · Campus Notice AI</title>
+    <link rel="stylesheet" href="/app.css" />
+  </head>
+  <body>
+    <main class="detail-shell">
+      <header class="detail-topbar">
+        <div>
+          <a class="secondary-link" href="/">&larr; 학생 홈</a>
+          <h1 id="detailTitle">공지 상세</h1>
+          <p id="detailMeta" class="section-caption">불러오는 중...</p>
+        </div>
+        <div id="detailActions" class="notice-actions"></div>
+      </header>
+
+      <section class="detail-layout">
+        <article class="detail-main">
+          <section class="detail-section">
+            <div class="section-header">
+              <h2>본문</h2>
+              <a id="originalLink" class="source-link" href="#" target="_blank" rel="noreferrer">원문 열기</a>
+            </div>
+            <div id="detailBody" class="detail-body"></div>
+          </section>
+
+          <section class="detail-section">
+            <div class="section-header">
+              <h2>첨부파일</h2>
+              <span id="attachmentCount">0개</span>
+            </div>
+            <div id="attachmentList" class="detail-list"></div>
+          </section>
+
+          <section class="detail-section">
+            <div class="section-header">
+              <h2>이미지</h2>
+              <span id="mediaCount">0개</span>
+            </div>
+            <div id="mediaGallery" class="detail-media-grid"></div>
+          </section>
+        </article>
+
+        <aside class="detail-side">
+          <section class="detail-section">
+            <h2>근거 상태</h2>
+            <div id="chunkSummary" class="status-grid"></div>
+          </section>
+
+          <section class="detail-section">
+            <h2>처리 상태</h2>
+            <div id="processingSummary" class="admin-kv"></div>
+          </section>
+
+          <section class="detail-section">
+            <h2>챗봇 질문</h2>
+            <a id="askChatLink" class="detail-primary-link" href="/">이 공지 기준으로 질문하기</a>
+          </section>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/notice-detail.js"></script>
+  </body>
+</html>
